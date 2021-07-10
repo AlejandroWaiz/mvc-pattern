@@ -14,3 +14,7 @@ func NewRepository(db *sql.DB) *Repository {
 
 	return &repository
 }
+
+type IRepository interface {
+	CreatePokemon()
+}
