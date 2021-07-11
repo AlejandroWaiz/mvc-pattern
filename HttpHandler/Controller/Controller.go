@@ -7,12 +7,13 @@ import (
 )
 
 type Controller struct {
-	Service service.Service
+	Service service.IService
 }
 
-func NewController(service service.Service) *Controller {
+func NewController(service service.IService) *Controller {
 
 	controller := Controller{
+
 		Service: service,
 	}
 

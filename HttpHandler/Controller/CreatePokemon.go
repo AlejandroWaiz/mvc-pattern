@@ -17,7 +17,7 @@ func (c *Controller) CreatePokemonCont(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	createdPokemon, err := c.Service.CreatePokemonServ(data)
+	err = c.Service.CreatePokemonServ(data)
 
 	if err != nil {
 
@@ -25,6 +25,6 @@ func (c *Controller) CreatePokemonCont(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	web.Success(createdPokemon, http.StatusOK).Send(w)
+	web.Success("Pokemon created succesfully!.", http.StatusOK).Send(w)
 
 }

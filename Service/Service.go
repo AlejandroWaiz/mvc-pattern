@@ -5,10 +5,10 @@ import (
 )
 
 type Service struct {
-	repository repository.Repository
+	repository repository.IRepository
 }
 
-func NewService(repository repository.Repository) IService {
+func NewService(repository repository.IRepository) IService {
 
 	service := Service{
 
@@ -20,5 +20,5 @@ func NewService(repository repository.Repository) IService {
 }
 
 type IService interface {
-	CreatePokemonServ(jsonBody []byte) ([]byte, error)
+	CreatePokemonServ(jsonBody []byte) error
 }

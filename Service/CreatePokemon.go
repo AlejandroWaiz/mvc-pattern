@@ -7,34 +7,26 @@ import (
 	models "github.com/AlejandroWaiz/mvc-pattern/Models"
 )
 
-func (s *Service) CreatePokemonServ(jsonBody []byte) ([]byte, error) {
+func (s *Service) CreatePokemonServ(jsonBody []byte) error {
 
-	var pokemonToCreate models.PokemonToCreate
+	var pokemonToCreate []models.PokemonToCreate
 
 	err := json.Unmarshal(jsonBody, &pokemonToCreate)
 
 	if err != nil {
 
-		return nil, errors.New("Invalid or null data.")
+		return errors.New("Invalid or null data.")
 
 	}
 
-	createdPokemon, err := s.repository.CreatePokemonRepo(pokemonToCreate)
+	err = s.repository.CreatePokemonRepo(pokemonToCreate)
 
 	if err != nil {
 
-		return nil, err
+		return err
 
 	}
 
-	resp, err := json.Marshal(createdPokemon)
-
-	if err != nil {
-
-		return nil, err
-
-	}
-
-	return resp, nil
+	return nil
 
 }

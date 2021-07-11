@@ -20,5 +20,5 @@ func NewRepository(db *sql.DB) IRepository {
 }
 
 type IRepository interface {
-	CreatePokemonRepo(models.PokemonToCreate) (models.CreatedPokemon, error)
+	CreatePokemonRepo(pokemons []models.PokemonToCreate) error
 }
