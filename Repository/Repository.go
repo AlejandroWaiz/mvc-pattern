@@ -1,12 +1,16 @@
 package repository
 
-import "database/sql"
+import (
+	"database/sql"
+
+	models "github.com/AlejandroWaiz/mvc-pattern/Models"
+)
 
 type Repository struct {
 	db *sql.DB
 }
 
-func NewRepository(db *sql.DB) *Repository {
+func NewRepository(db *sql.DB) IRepository {
 
 	repository := Repository{
 		db: db,
@@ -16,5 +20,5 @@ func NewRepository(db *sql.DB) *Repository {
 }
 
 type IRepository interface {
-	CreatePokemon()
+	CreatePokemonRepo(models.PokemonToCreate) (models.CreatedPokemon, error)
 }
