@@ -1,8 +1,14 @@
 package repository
 
-import models "github.com/AlejandroWaiz/mvc-pattern/Models"
+func (r *Repository) DeletePokemonRepo(id int) error {
 
-func (r *Repository) DeletePokemonRepo([]models.Pokemon) error {
+	q := "DELETE FROM `allpokemons` WHERE ID = ?"
+
+	_, err := r.db.Exec(q, id)
+
+	if err != nil {
+		return err
+	}
 
 	return nil
 

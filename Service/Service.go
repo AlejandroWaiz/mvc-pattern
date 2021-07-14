@@ -20,6 +20,7 @@ func NewService(repository repository.IRepository) IService {
 }
 
 type IService interface {
-	CreatePokemonServ(jsonBody []byte) error
+	CreatePokemonServ([]byte) error
 	GetAllPokemons() ([]byte, error)
+	DeletePokemonServ(int) error
 }

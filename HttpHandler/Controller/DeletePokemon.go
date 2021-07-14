@@ -1,17 +1,19 @@
 package controller
 
 import (
-	"encoding/json"
-	"io/ioutil"
+	"log"
 	"net/http"
+	"strconv"
 
 	web "github.com/AlejandroWaiz/mvc-pattern/HttpHandler/APIResponse"
-	models "github.com/AlejandroWaiz/mvc-pattern/Models"
+	"github.com/gorilla/mux"
 )
 
 func (c *Controller) DeletePokemon(w http.ResponseWriter, r *http.Request) {
 
-	dataBody, err := ioutil.ReadAll(r.Body)
+	vars := mux.Vars(r)
+
+	pokemonID, err := strconv.Atoi(vars["id"])
 
 	if err != nil {
 
@@ -19,14 +21,15 @@ func (c *Controller) DeletePokemon(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	var pokemonToDelete models.Pokemon
-
-	err = json.Unmarshal(dataBody, &pokemonToDelete)
+	err = c.Service.DeletePokemonServ(pokemonID)
 
 	if err != nil {
 
-		web.ErrInvalidJSON.Send(w)
+		log.Println(err)
+		web.ErrBadRequest.Send(w)
 
 	}
+
+	web.Success("Pokemon has been deleted succesfully!", 200).Send(w)
 
 }

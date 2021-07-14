@@ -1,8 +1,12 @@
 package service
 
-import models "github.com/AlejandroWaiz/mvc-pattern/Models"
+func (s *Service) DeletePokemonServ(id int) error {
 
-func (s *Service) DeletePokemonServ([]models.Pokemon) error {
+	err := s.repository.DeletePokemonRepo(id)
+
+	if err != nil {
+		return err
+	}
 
 	return nil
 
