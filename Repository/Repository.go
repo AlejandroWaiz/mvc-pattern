@@ -20,6 +20,6 @@ func NewRepository(db *sql.DB) IRepository {
 }
 
 type IRepository interface {
-	CreatePokemonRepo([]models.PokemonToCreate) error
-	GetAllPokemonsRepo() ([]models.CreatedPokemon, error)
+	CreatePokemonRepo([]models.Pokemon) error
+	GetAllPokemonsRepo() ([]models.PokemonWithID, error)
 }

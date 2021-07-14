@@ -9,9 +9,9 @@ import (
 
 func (s *Service) CreatePokemonServ(jsonBody []byte) error {
 
-	var pokemonToCreate []models.PokemonToCreate
+	var Pokemon []models.Pokemon
 
-	err := json.Unmarshal(jsonBody, &pokemonToCreate)
+	err := json.Unmarshal(jsonBody, &Pokemon)
 
 	if err != nil {
 
@@ -19,7 +19,7 @@ func (s *Service) CreatePokemonServ(jsonBody []byte) error {
 
 	}
 
-	err = s.repository.CreatePokemonRepo(pokemonToCreate)
+	err = s.repository.CreatePokemonRepo(Pokemon)
 
 	if err != nil {
 

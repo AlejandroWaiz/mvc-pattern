@@ -1,6 +1,6 @@
 package models
 
-type PokemonToCreate struct {
+type Pokemon struct {
 	PokemonName     string
 	PokemonNickname string
 	PrimaryType     string

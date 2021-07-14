@@ -1,6 +1,6 @@
 package models
 
-type CreatedPokemon struct {
+type PokemonWithID struct {
 	ID              int
 	PokemonName     string
 	PokemonNickname string

@@ -2,7 +2,7 @@ package repository
 
 import models "github.com/AlejandroWaiz/mvc-pattern/Models"
 
-func (r *Repository) CreatePokemonRepo(pokemons []models.PokemonToCreate) error {
+func (r *Repository) CreatePokemonRepo(pokemons []models.Pokemon) error {
 
 	for _, newPokemon := range pokemons {
 
