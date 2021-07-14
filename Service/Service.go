@@ -1,6 +1,7 @@
 package service
 
 import (
+	models "github.com/AlejandroWaiz/mvc-pattern/Models"
 	repository "github.com/AlejandroWaiz/mvc-pattern/Repository"
 )
 
@@ -22,5 +23,6 @@ func NewService(repository repository.IRepository) IService {
 type IService interface {
 	CreatePokemonServ([]byte) error
 	GetAllPokemons() ([]byte, error)
-	DeletePokemonServ(int) error
+	DeletePokemonServByID(id int) error
+	UpdatePokemonByID(data models.PokemonWithID) error
 }

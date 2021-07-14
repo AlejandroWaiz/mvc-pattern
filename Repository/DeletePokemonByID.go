@@ -1,6 +1,6 @@
 package repository
 
-func (r *Repository) DeletePokemonRepo(id int) error {
+func (r *Repository) DeletePokemonRepoByID(id int) error {
 
 	q := "DELETE FROM `allpokemons` WHERE ID = ?"
 

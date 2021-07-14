@@ -22,5 +22,6 @@ func NewRepository(db *sql.DB) IRepository {
 type IRepository interface {
 	CreatePokemonRepo([]models.Pokemon) error
 	GetAllPokemonsRepo() ([]models.PokemonWithID, error)
-	DeletePokemonRepo(id int) error
+	DeletePokemonRepoByID(id int) error
+	UpdatePokemonByID(toUpdate models.PokemonWithID) error
 }

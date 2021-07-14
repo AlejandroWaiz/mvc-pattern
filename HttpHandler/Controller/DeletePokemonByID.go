@@ -9,7 +9,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func (c *Controller) DeletePokemon(w http.ResponseWriter, r *http.Request) {
+func (c *Controller) DeletePokemonByID(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
 
@@ -21,7 +21,7 @@ func (c *Controller) DeletePokemon(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	err = c.Service.DeletePokemonServ(pokemonID)
+	err = c.Service.DeletePokemonServByID(pokemonID)
 
 	if err != nil {
 

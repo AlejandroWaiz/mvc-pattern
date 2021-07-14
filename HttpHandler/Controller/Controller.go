@@ -23,4 +23,6 @@ func NewController(service service.IService) *Controller {
 
 type IController interface {
 	CreatePokemonCont(w http.ResponseWriter, r *http.Request)
+	DeletePokemonByID(w http.ResponseWriter, r *http.Request)
+	GetAllPokemons(w http.ResponseWriter, r *http.Request)
 }
